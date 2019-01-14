@@ -92,14 +92,15 @@ export default function init()
   };
   String.prototype.capitalizeAllWords = function (): string
   {
+    let result = "";
     const words = this.replace(/\s+/g, " ")
       .trim()
       .split(" ");
-    for (let item of words)
+    for (const item of words)
     {
-      item = item.capitalize();
+      result += item.capitalize() + " ";
     }
-    return words.join(" ");
+    return result;
   };
   String.prototype.isValidEmail = function (): boolean
   {
