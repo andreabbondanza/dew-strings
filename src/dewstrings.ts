@@ -1,6 +1,8 @@
-declare global {
+declare global
+{
   // tslint:disable-next-line:interface-name
-  interface String {
+  interface String
+  {
     /**
      * Capitalize the string
      */
@@ -72,79 +74,100 @@ declare global {
   }
 }
 
-export enum StringTypes {
+export enum StringTypes
+{
   All,
   Alpha,
   Number,
   AlphaNumber,
 }
 
-export default function init() {
-  String.prototype.capitalize = function(): string {
+export default function init()
+{
+  String.prototype.capitalize = function (): string
+  {
     return this[0].toUpperCase() + this.substr(1, this.length - 1);
   };
-  String.prototype.capitalizeAllWords = function(): string {
+  String.prototype.capitalizeAllWords = function (): string
+  {
     const words = this.replace(/\s+/g, " ")
       .trim()
-      .split(' ');
-    for (let item of words) {
+      .split(" ");
+    for (let item of words)
+    {
       item = item.capitalize();
     }
-    return words.join(' ');
+    return words.join(" ");
   };
-  String.prototype.isValidEmail = function(): boolean {
+  String.prototype.isValidEmail = function (): boolean
+  {
     // tslint:disable-next-line:max-line-length
     const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return re.test(this.toString());
   };
-  String.prototype.removeLastCharacter = function(): string {
+  String.prototype.removeLastCharacter = function (): string
+  {
     return this.substr(0, this.length - 2);
   };
-  String.prototype.removeFirstCharacter = function(): string {
+  String.prototype.removeFirstCharacter = function (): string
+  {
     return this.substr(1, this.length - 1);
   };
-  String.prototype.removeCharacterAt = function(index: number): string {
+  String.prototype.removeCharacterAt = function (index: number): string
+  {
     if (index + 1 < this.length) return this.substring(0, index) + this.substring(index + 1, this.length);
     else throw new RangeError();
   };
-  String.prototype.randomString = function(length: number, type: StringTypes): string {
-    let result = '';
-    let pool = '';
-    if (type === StringTypes.All) pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!£$%&/()=?^+#@';
-    if (type === StringTypes.Alpha) pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  String.prototype.randomString = function (length: number, type: StringTypes): string
+  {
+    let result = "";
+    let pool = "";
+    if (type === StringTypes.All) pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!£$%&/()=?^+#@";
+    if (type === StringTypes.Alpha) pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (type === StringTypes.Number) pool = "0123456789";
     if (type === StringTypes.AlphaNumber) pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for (let i = 0; i < 5; i++) result += pool.charAt(Math.floor(Math.random() * pool.length));
+    for (let i = 0; i < length; i++) result += pool.charAt(Math.floor(Math.random() * pool.length));
     return result;
   };
-  String.prototype.removeChar = function(char: string) {
+  String.prototype.removeChar = function (char: string)
+  {
     return this.replace(char, "");
   };
-  String.prototype.hasSubstring = function(sub: string): boolean {
+  String.prototype.hasSubstring = function (sub: string): boolean
+  {
     return this.search(sub) > -1;
   };
-  String.prototype.wordCount = function(): number {
+  String.prototype.wordCount = function (): number
+  {
     return this.replace(/[ ]{2,}/g, " ")
       .trim()
       .split(" ").length;
   };
-  String.prototype.toEmptyIfNull = function(): string {
+  String.prototype.toEmptyIfNull = function (): string
+  {
     return this === undefined || this === null ? "" : this.toString();
   };
-  String.prototype.isNullOrEmpty = function(): boolean {
+  String.prototype.isNullOrEmpty = function (): boolean
+  {
     return this.toEmptyIfNull() === "" ? true : false;
   };
-  String.prototype.isNumber = function(): boolean {
+  String.prototype.isNumber = function (): boolean
+  {
     return /^[0-9]*(\,{1}|\.{1})?[0-9]*$/g.test(this.toString());
   };
-  String.prototype.isAlphabetic = function(): boolean {
+  String.prototype.isAlphabetic = function (): boolean
+  {
     return /^[A-za-z]*$/g.test(this.toString());
   };
-  String.prototype.format = function(values: string[]): string {
+  String.prototype.format = function (values: string[]): string
+  {
     let temp = this;
-    if (values.length > 0) {
-      for (const element of values) {
-        if (temp !== undefined && temp !== null) {
+    if (values.length > 0)
+    {
+      for (const element of values)
+      {
+        if (temp !== undefined && temp !== null)
+        {
           temp = temp.replace(/{[0-9]+}/i, element);
         }
       }

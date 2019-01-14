@@ -23,6 +23,7 @@
                 "singleline": "never"
             }
         ],
+        "only-arrow-functions": false,
         "no-unused-expression": [
             true,
             "allow-fast-null-checks"
