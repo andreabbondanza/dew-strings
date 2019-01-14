@@ -331,3 +331,4 @@ ASALocalRun/
 
 [L-l]ib/
 test
+src/*.js

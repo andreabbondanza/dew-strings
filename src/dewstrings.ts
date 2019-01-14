@@ -50,15 +50,17 @@ declare global
     /**
      * Remove all duplicates spaces
      */
-    RemoveDuplicateSpaces(): string;
+    removeDuplicateSpaces(): string;
     /**
      * Prevent null/undefined reference
+     * @param string string
      */
-    toEmptyIfNull(): string;
+    toEmptyIfNull(s: string): string;
     /**
      * Check if string is null, undefined or empty
+     * @param string string
      */
-    isNullOrEmpty(): boolean;
+    isNullOrEmpty(s: string): boolean;
     /**
      * Check if is a number from regex ^[0-9]*(\,{1}|\.{1})?[0-9]*$
      */
@@ -107,7 +109,7 @@ export default function init()
   };
   String.prototype.removeLastCharacter = function (): string
   {
-    return this.substr(0, this.length - 2);
+    return this.substr(0, this.length - 1);
   };
   String.prototype.removeFirstCharacter = function (): string
   {
@@ -115,7 +117,7 @@ export default function init()
   };
   String.prototype.removeCharacterAt = function (index: number): string
   {
-    if (index + 1 < this.length) return this.substring(0, index) + this.substring(index + 1, this.length);
+    if (index + 1 < this.length) return this.substring(0, index - 1) + this.substring(index, this.length);
     else throw new RangeError();
   };
   String.prototype.randomString = function (length: number, type: StringTypes): string
@@ -131,7 +133,7 @@ export default function init()
   };
   String.prototype.removeChar = function (char: string)
   {
-    return this.replace(char, "");
+    return this.replace(new RegExp(char, "g"), "");
   };
   String.prototype.hasSubstring = function (sub: string): boolean
   {
@@ -139,17 +141,21 @@ export default function init()
   };
   String.prototype.wordCount = function (): number
   {
+    return this.removeDuplicateSpaces().split(" ").length;
+  };
+
+  String.prototype.removeDuplicateSpaces = function (): string
+  {
     return this.replace(/[ ]{2,}/g, " ")
-      .trim()
-      .split(" ").length;
+      .trim();
   };
-  String.prototype.toEmptyIfNull = function (): string
+  String.prototype.toEmptyIfNull = function (s: string): string
   {
-    return this === undefined || this === null ? "" : this.toString();
+    return s === undefined || s === null ? "" : s.toString();
   };
-  String.prototype.isNullOrEmpty = function (): boolean
+  String.prototype.isNullOrEmpty = function (s: string): boolean
   {
-    return this.toEmptyIfNull() === "" ? true : false;
+    return this.toEmptyIfNull(s) === "" ? true : false;
   };
   String.prototype.isNumber = function (): boolean
   {
