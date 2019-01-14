@@ -1,0 +1,43 @@
+{
+  "name": "dewstrings",
+  "version": "1.0.0-beta.1",
+  "markdown": "github",
+  "description": "DewStrings (from c#) for ts",
+  "main": "lib/dewstrings.js",
+  "types": "lib/dewstrings.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreabbondanza/DewTranslator.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "strings",
+    "dewstrings"
+  ],
+  "files": [
+    "lib/**/*"
+  ],
+  "author": "Andrea Vincenzo Abbondanza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andreabbondanza/DewTranslator/issues"
+  },
+  "homepage": "https://github.com/andreabbondanza/DewTranslator#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^1.15.3",
+    "tslint": "5.11.0",
+    "tslint-config-prettier": "1.17.0",
+    "typescript": "3.2.2"
+  }
+}
