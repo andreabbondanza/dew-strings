@@ -55,12 +55,12 @@ declare global
      * Prevent null/undefined reference
      * @param string string
      */
-    toEmptyIfNull(s: string): string;
+    toEmptyIfNull(s: string | null | undefined): string;
     /**
      * Check if string is null, undefined or empty
      * @param string string
      */
-    isNullOrEmpty(s: string): boolean;
+    isNullOrEmpty(s: string | null | undefined): boolean;
     /**
      * Check if is a number from regex ^[0-9]*(\,{1}|\.{1})?[0-9]*$
      */
@@ -92,7 +92,7 @@ export default function init()
 {
   String.prototype.capitalize = function (): string
   {
-    if(this.length > 0)
+    if (this.length > 0)
       return this[0].toUpperCase() + this.substr(1, this.length - 1);
     return "";
   };
@@ -156,11 +156,11 @@ export default function init()
     return this.replace(/[ ]{2,}/g, " ")
       .trim();
   };
-  String.prototype.toEmptyIfNull = function (s: string): string
+  String.prototype.toEmptyIfNull = function (s: string | null | undefined): string
   {
     return s === undefined || s === null ? "" : s.toString();
   };
-  String.prototype.isNullOrEmpty = function (s: string): boolean
+  String.prototype.isNullOrEmpty = function (s: string | null | undefined): boolean
   {
     return this.toEmptyIfNull(s) === "" ? true : false;
   };
