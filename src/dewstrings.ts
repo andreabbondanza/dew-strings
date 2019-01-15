@@ -73,6 +73,10 @@ declare global
      * Format a string with values
      */
     format(values: string[]): string;
+    /**
+     * Return string extension if exists
+     */
+    getExtension(): string;
   }
 }
 
@@ -180,5 +184,10 @@ export default function init()
       }
     }
     return temp.toString();
+  };
+  String.prototype.getExtension = function (): string
+  {
+    const temp = this.split(".");
+    return temp.length <= 1 ? "" : temp[temp.length - 1];
   };
 }

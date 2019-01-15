@@ -1,6 +1,6 @@
 {
   "name": "dewstrings",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "markdown": "github",
   "description": "DewStrings (from c#) for ts",
   "main": "lib/dewstrings.js",
