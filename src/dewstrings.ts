@@ -92,7 +92,9 @@ export default function init()
 {
   String.prototype.capitalize = function (): string
   {
-    return this[0].toUpperCase() + this.substr(1, this.length - 1);
+    if(this.length > 0)
+      return this[0].toUpperCase() + this.substr(1, this.length - 1);
+    return "";
   };
   String.prototype.capitalizeAllWords = function (): string
   {
