@@ -1,6 +1,6 @@
 {
   "name": "dewstrings",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.1",
   "markdown": "github",
   "description": "DewStrings (from c#) for ts",
   "main": "lib/dewstrings.js",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreabbondanza/DewTranslator.git"
+    "url": "git+https://github.com/andreabbondanza/dew-strings.git"
   },
   "keywords": [
     "typescript",
@@ -30,9 +30,9 @@
   "author": "Andrea Vincenzo Abbondanza",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andreabbondanza/DewTranslator/issues"
+    "url": "https://github.com/andreabbondanza/dew-strings/issues"
   },
-  "homepage": "https://github.com/andreabbondanza/DewTranslator#readme",
+  "homepage": "https://github.com/andreabbondanza/dew-stringsr#readme",
   "dependencies": {},
   "devDependencies": {
     "prettier": "^1.15.3",

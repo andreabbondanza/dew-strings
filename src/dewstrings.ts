@@ -77,6 +77,11 @@ declare global
      * Return string extension if exists
      */
     getExtension(): string;
+    /**
+     * Test if string is positive to regexp
+     * @param regex a regeular expression
+     */
+    test(regex: RegExp): boolean
   }
 }
 
@@ -90,6 +95,10 @@ export enum StringTypes
 
 export default function init()
 {
+  String.prototype.test = function (regex: RegExp): boolean
+  {
+    return regex.test(this.toString());
+  }
   String.prototype.capitalize = function (): string
   {
     if (this.length > 0)
